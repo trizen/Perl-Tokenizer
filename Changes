@@ -1,0 +1,7 @@
+Revision history for Perl-Tokenizer
+
+0.02    2015-07-23
+        - Fixed the parsing of '__DATA__' when it's followed by a fat comma.
+
+0.01    2015-07-16
+        - First version, released on an unsuspecting world.
