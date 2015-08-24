@@ -898,19 +898,22 @@ For this code:
 
     my $num = 42;
 
-it creates the following tokens:
+it generates the following tokens:
 
-    [ #  TOKEN                    POS
-      { keyword              => [0, 2] },
-      { horizontal_space     => [2, 3] },
-      { scalar_sigil         => [3, 4] },
-      { var_name             => [4, 7] },
-      { horizontal_space     => [7, 8] },
-      { operator             => [8, 9] },
-      { horizontal_space     => [9, 10] },
-      { number               => [10, 12] },
-      { semicolon            => [12, 13] },
-    ]
+      #  TOKEN                    POS
+      ( keyword              => (0, 2) )
+      ( horizontal_space     => (2, 3) )
+      ( scalar_sigil         => (3, 4) )
+      ( var_name             => (4, 7) )
+      ( horizontal_space     => (7, 8) )
+      ( operator             => (8, 9) )
+      ( horizontal_space     => (9, 10) )
+      ( number               => (10, 12) )
+      ( semicolon            => (12, 13) )
+
+=head1 REPOSITORY
+
+L<https://github.com/trizen/Perl-Tokenizer>
 
 =head1 AUTHOR
 
