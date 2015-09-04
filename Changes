@@ -1,5 +1,8 @@
 Revision history for Perl-Tokenizer
 
+0.03    2015-09-04
+        - Added support for the new bitwise operators (`^.`, `&.` and `|.`)
+
 0.02    2015-07-23
         - Fixed the parsing of '__DATA__' when it's followed by a fat comma.
 
