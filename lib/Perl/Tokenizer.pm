@@ -156,7 +156,7 @@ my $substitution_flags   = qr{[mnsixpogcerdual]*};
 my $compiled_regex_flags = qr{[mnsixpodual]*};
 
 my @postfix_operators  = qw( ++ -- );
-my @prec_operators     = qw ( ... .. -> ++ -- =~ <=> \\ ? ~~ ~ : );
+my @prec_operators     = qw ( ... .. -> ++ -- =~ <=> \\ ? ~~ ~. ~ : );
 my @asigment_operators = qw( && || // ** ! % ^. ^ &. & |. | * + - = / . << >> < > );
 
 my $operators = do {
