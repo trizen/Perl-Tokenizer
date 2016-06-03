@@ -10,7 +10,7 @@ require Exporter;
 our @ISA       = qw(Exporter);
 our @EXPORT_OK = qw(perl_tokens);
 
-our $VERSION = '0.03';
+our $VERSION = '0.04';
 
 =encoding utf8
 
@@ -20,7 +20,7 @@ Perl::Tokenizer - A tiny Perl code tokenizer.
 
 =head1 VERSION
 
-Version 0.03
+Version 0.04
 
 =cut
 
@@ -424,9 +424,9 @@ sub perl_tokens(&$) {
                 }
                 continue;
             }
-            when (/\G(?!(?>tr|[ysm]|q[rwxq]?)\h*=>)/) {
+            when (/\G(?!(?>tr|[ysm]|q[rwxq]?)\h*=>)/ && /\G(?<!->)/) {
 
-                /\G(?=[a-z]+\h*\})/ && $flat == 1 ? continue : ();
+                ($flat == 1 && /\G(?=[a-z]+\h*\})/) || /\G((?<=\{)|(?<=\{\h))(?=[a-z]+\h*\})/ ? continue : ();
 
                 when (m{\G $double_q{s} $substitution_flags }gcxo) {
                     $callback->('substitution', $-[0], $+[0]);
@@ -558,7 +558,7 @@ sub perl_tokens(&$) {
                 }
                 continue;
             }
-            when ($regex == 1 && m{\G$glob}gco) {
+            when ($regex == 1 && /\G(?<![-+]{2}\h)/ && m{\G$glob}gco) {
                 $callback->('glob_readline', $-[0], $+[0]);
                 $regex  = 0;
                 $canpod = 0;

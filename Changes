@@ -1,5 +1,10 @@
 Revision history for Perl-Tokenizer
 
+0.04    2016-06-03
+        - Fixed the parsing of `$h{key}{s}`, `$h{key}{tr}`, etc...
+        - Fixed the parsing of `$o->s()`, `$o->tr()`, etc...
+        - Fixed the parsing of `$x++ < $y` and `$x-- < $y`
+
 0.03    2015-09-04
         - Added support for the new bitwise operators (`^.`, `&.` and `|.`)
 
