@@ -558,7 +558,7 @@ sub perl_tokens(&$) {
                 }
                 continue;
             }
-            when ($regex == 1 && /\G(?<![-+]{2}\h)/ && m{\G$glob}gco) {
+            when ($regex == 1 && /\G(?<!(?:--|\+\+)\h)/ && m{\G$glob}gco) {
                 $callback->('glob_readline', $-[0], $+[0]);
                 $regex  = 0;
                 $canpod = 0;
