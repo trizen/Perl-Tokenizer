@@ -20,6 +20,11 @@ my $builder = Module::Build->new(
     build_requires => {
                        'Test::More' => 0,
                       },
+    meta_merge => {
+                   resources => {
+                                 repository => 'https://github.com/trizen/Perl-Tokenizer'
+                                }
+                  },
     requires => {
                  'perl'            => '5.18.0',
                  'utf8'            => 0,

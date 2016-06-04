@@ -3,25 +3,25 @@ require 5.018000;
 use ExtUtils::MakeMaker;
 WriteMakefile
 (
-  'NAME' => 'Perl::Tokenizer',
-  'PREREQ_PM' => {
-                   'utf8' => 0,
-                   'Exporter' => 0,
-                   'Test::More' => 0,
-                   'strict' => 0,
-                   'HTML::Entities' => 0,
-                   'Term::ANSIColor' => 0,
-                   'open' => 0,
-                   'Getopt::Std' => 0,
-                   'warnings' => 0
-                 },
-  'PL_FILES' => {},
   'VERSION_FROM' => 'lib/Perl/Tokenizer.pm',
+  'NAME' => 'Perl::Tokenizer',
+  'PL_FILES' => {},
+  'INSTALLDIRS' => 'site',
+  'PREREQ_PM' => {
+                   'Test::More' => 0,
+                   'Term::ANSIColor' => 0,
+                   'utf8' => 0,
+                   'warnings' => 0,
+                   'HTML::Entities' => 0,
+                   'open' => 0,
+                   'Exporter' => 0,
+                   'strict' => 0,
+                   'Getopt::Std' => 0
+                 },
   'EXE_FILES' => [
                    'bin/pfilter',
                    'bin/pl2html',
                    'bin/pl2term'
-                 ],
-  'INSTALLDIRS' => 'site'
+                 ]
 )
 ;

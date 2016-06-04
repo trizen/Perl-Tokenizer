@@ -48,7 +48,10 @@
    "resources" : {
       "license" : [
          "http://dev.perl.org/licenses/"
-      ]
+      ],
+      "repository" : {
+         "url" : "https://github.com/trizen/Perl-Tokenizer"
+      }
    },
    "version" : "0.04",
    "x_serialization_backend" : "JSON::PP version 2.27400"

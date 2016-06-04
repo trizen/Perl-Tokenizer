@@ -29,5 +29,6 @@ requires:
   warnings: '0'
 resources:
   license: http://dev.perl.org/licenses/
+  repository: https://github.com/trizen/Perl-Tokenizer
 version: '0.04'
 x_serialization_backend: 'CPAN::Meta::YAML version 0.018'
