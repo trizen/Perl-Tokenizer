@@ -25,32 +25,28 @@ Version 0.04
 =cut
 
 my $make_esc_delim = sub {
-    if ($_[0] ne '\\') {
-        my $delim = quotemeta shift;
-        return qr{$delim([^$delim\\]*+(?>\\.|[^$delim\\]+)*+)$delim}s;
-    }
-    else {
+    if ($_[0] eq '\\') {
         return qr{\\(.*?)\\}s;
     }
+
+    my $delim = quotemeta shift;
+    qr{$delim([^$delim\\]*+(?>\\.|[^$delim\\]+)*+)$delim}s;
 };
 
 my $make_end_delim = sub {
-    if ($_[0] ne '\\') {
-        my $delim = quotemeta shift;
-        return qr{[^$delim\\]*+(?>\\.|[^$delim\\]+)*+$delim}s;
-    }
-    else {
+    if ($_[0] eq '\\') {
         return qr{.*?\\}s;
     }
+
+    my $delim = quotemeta shift;
+    qr{[^$delim\\]*+(?>\\.|[^$delim\\]+)*+$delim}s;
 };
 
 my %bdelims;
-{
-    local $" = q{};
-    foreach my $d ([qw~< >~], [qw~( )~], [qw~{ }~], [qw~[ ]~]) {
-        my @ed = map { quotemeta } @{$d};
+foreach my $d ([qw~< >~], [qw~( )~], [qw~{ }~], [qw~[ ]~]) {
+    my @ed = map { quotemeta } @{$d};
 
-        $bdelims{$d->[0]} = qr{
+    $bdelims{$d->[0]} = qr{
         $ed[0]
         (?>
             [^$ed[0]$ed[1]\\]+
@@ -60,8 +56,7 @@ my %bdelims;
             (??{$bdelims{$d->[0]}})
         )*
         $ed[1]
-      }xs;
-    }
+    }xs;
 }
 
 # string - single quote
@@ -79,6 +74,10 @@ my $match_re = $make_esc_delim->(q{/});
 # glob/readline
 my $glob = $bdelims{'<'};
 
+# Cache regular expressions that are generated dynamically
+my %cache_esc;
+my %cache_end;
+
 # Double pairs
 my $dpairs = qr{
     (?=
@@ -88,7 +87,7 @@ my $dpairs = qr{
                 (\W)
      )
     )
-    (??{$bdelims{$+} // $make_esc_delim->($+)})
+    (??{$bdelims{$+} // ($cache_esc{$+} //= $make_esc_delim->($+))})
 }x;
 
 # Double pairs -- comments
@@ -127,7 +126,7 @@ my $make_double_q_balanced = sub {
                $dpairs
                    |                     # or: single delims (e.g.: s///)
                $dpairs
-              (??{$make_end_delim->($+)})
+              (??{$cache_end{$+} //= $make_end_delim->($+)})
         )
     }x;
 };
