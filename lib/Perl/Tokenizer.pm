@@ -920,7 +920,7 @@ Daniel "Trizen" Șuteu, E<lt>trizenx@gmail.comE<gt>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright (C) 2013-2015
+Copyright (C) 2013-2016
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself, either Perl version 5.22.0 or,
