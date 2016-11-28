@@ -26,16 +26,19 @@ my $builder = Module::Build->new(
                                 }
                   },
     requires => {
-                 'perl'            => '5.18.0',
-                 'utf8'            => 0,
-                 'strict'          => 0,
-                 'warnings'        => 0,
-                 'Exporter'        => 0,
-                 'open'            => 0,
-                 'Term::ANSIColor' => 0,
-                 'HTML::Entities'  => 0,
-                 'Getopt::Std'     => 0,
+                 'perl'     => '5.18.0',
+                 'strict'   => 0,
+                 'warnings' => 0,
+                 'Exporter' => 0,
                 },
+
+    # This modules are required only by the bin/* scripts
+    recommends => {
+                   'open'            => 0,
+                   'Term::ANSIColor' => 0,
+                   'HTML::Entities'  => 0,
+                   'Getopt::Std'     => 0,
+                  },
     add_to_cleanup     => ['Perl-Tokenizer-*'],
     create_makefile_pl => 'traditional',
                                 );

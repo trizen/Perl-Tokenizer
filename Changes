@@ -1,5 +1,10 @@
 Revision history for Perl-Tokenizer
 
+0.05    2016-11-28
+        - Added cache support for regular expressions that are dynamically generated.
+        - Added more tests.
+        - Updated the dependencies.
+
 0.04    2016-06-03
         - Fixed the parsing of `$h{key}{s}`, `$h{key}{tr}`, etc...
         - Fixed the parsing of `$o->s()`, `$o->tr()`, etc...

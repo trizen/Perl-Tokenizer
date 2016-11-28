@@ -12,6 +12,8 @@ META.yml
 README
 t/00-load.t
 t/01-perl_lex.t
+t/02-regex.t
+t/03-code.t
 t/manifest.t
 t/pod-coverage.t
 t/pod.t

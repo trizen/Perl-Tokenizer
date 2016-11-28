@@ -1,7 +1,7 @@
 #!perl -T
+
 use 5.006;
 use strict;
-use utf8;
 use warnings;
 use Test::More;
 
@@ -28,5 +28,5 @@ BEGIN {
             is($token, shift(@expected));
         },
         'my $num = 42;'
-    );
+                                );
 }
