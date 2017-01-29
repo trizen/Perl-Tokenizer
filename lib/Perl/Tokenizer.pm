@@ -156,11 +156,11 @@ my $compiled_regex_flags = qr{[mnsixpodual]*};
 
 my @postfix_operators  = qw( ++ -- );
 my @prec_operators     = qw ( ... .. -> ++ -- =~ <=> \\ ? ~~ ~. ~ : );
-my @asigment_operators = qw( && || // ** ! % ^. ^ &. & |. | * + - = / . << >> < > );
+my @assignment_operators = qw( && || // ** ! % ^. ^ &. & |. | * + - = / . << >> < > );
 
 my $operators = do {
     local $" = '|';
-    qr{@{[map{quotemeta} @prec_operators, @asigment_operators]}};
+    qr{@{[map{quotemeta} @prec_operators, @assignment_operators]}};
 };
 
 my $postfix_operators = do {
@@ -168,9 +168,9 @@ my $postfix_operators = do {
     qr{@{[map{quotemeta} @postfix_operators]}};
 };
 
-my $asigment_operators = do {
+my $assignment_operators = do {
     local $" = '|';
-    qr{@{[map{"\Q$_=\E"} @asigment_operators]}};
+    qr{@{[map{"\Q$_=\E"} @assignment_operators]}};
 };
 
 my @special_var_names = (qw( \\ | + / ~ ! @ $ % ^ & * ( ) } < > : ; " ` ' ? = - [ ] . ), '#', ',');
@@ -563,7 +563,7 @@ sub perl_tokens(&$) {
                 $canpod = 0;
                 redo;
             }
-            when (m{\G$asigment_operators}gco) {
+            when (m{\G$assignment_operators}gco) {
                 $callback->('assignment_operator', $-[0], $+[0]);
                 $regex  = 1;
                 $canpod = 0;
@@ -759,7 +759,7 @@ Closed parenthesis. (C<)>)
 
 =item curly_bracket_open
 
-Open curly backet. (C<{>)
+Open curly bracket. (C<{>)
 
 =item curly_bracket_close
 
