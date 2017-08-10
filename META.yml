@@ -16,7 +16,7 @@ name: Perl-Tokenizer
 provides:
   Perl::Tokenizer:
     file: lib/Perl/Tokenizer.pm
-    version: '0.05'
+    version: '0.06'
 recommends:
   Getopt::Std: '0'
   HTML::Entities: '0'
@@ -31,5 +31,5 @@ requires:
 resources:
   license: http://dev.perl.org/licenses/
   repository: https://github.com/trizen/Perl-Tokenizer
-version: '0.05'
+version: '0.06'
 x_serialization_backend: 'CPAN::Meta::YAML version 0.018'
