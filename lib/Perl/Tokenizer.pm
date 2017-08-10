@@ -1,5 +1,6 @@
 package Perl::Tokenizer;
 
+use utf8;
 use 5.018;
 use strict;
 use warnings;
