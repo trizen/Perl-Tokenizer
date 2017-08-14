@@ -373,7 +373,8 @@ sub perl_tokens(&$) {
             }
             when (m~\G\}~gc) {
                 $callback->('curly_bracket_close', $-[0], $+[0]);
-                $flat = 0;
+                $flat   = 0;
+                $canpod = 1;
                 redo;
             }
             when (m~\G\[~gc) {
