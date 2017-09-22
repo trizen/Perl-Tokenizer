@@ -31,7 +31,7 @@ requires:
 resources:
   bugtracker: https://github.com/trizen/Perl-Tokenizer/issues
   homepage: https://github.com/trizen/Perl-Tokenizer
-  license: http://www.perlfoundation.org/artistic_license_2_0
+  license: http://opensource.org/licenses/artistic-license-2.0.php
   repository: https://github.com/trizen/Perl-Tokenizer
 version: '0.06'
 x_serialization_backend: 'CPAN::Meta::YAML version 0.018'
