@@ -706,7 +706,7 @@ The standard token names that are available are:
        curly_bracket_open ...... Open curly bracket: '{'
        curly_bracket_close ..... Closed curly bracket: '}'
        substitution ............ Regex substitution: s/.../.../
-       transliteration.......... Transliteration: tr/.../.../' or y/.../.../
+       transliteration.......... Transliteration: tr/.../.../ or y/.../.../
        match_regex ............. A regex in matching context: m/.../
        compiled_regex .......... A quoted 'compiled' regex: qr/.../
        q_string ................ A single quoted string: q/.../
