@@ -234,7 +234,10 @@ sub perl_tokens(&$) {
                     $postfix_op    = 0;
                 }
                 else {
-                    m{\G.}gcs ? redo : exit -1;
+                    if (/\G(.)/gsc) {
+                        $callback->('unknown_char', $-[0], $+[0]);
+                        redo;
+                    }
                 }
                 redo;
             }
