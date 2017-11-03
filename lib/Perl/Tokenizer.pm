@@ -11,7 +11,7 @@ require Exporter;
 our @ISA    = qw(Exporter);
 our @EXPORT = qw(perl_tokens);
 
-our $VERSION = '0.06';
+our $VERSION = '0.07';
 
 =encoding utf8
 
@@ -21,7 +21,7 @@ Perl::Tokenizer - A tiny Perl code tokenizer.
 
 =head1 VERSION
 
-Version 0.06
+Version 0.07
 
 =cut
 
