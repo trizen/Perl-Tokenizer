@@ -223,8 +223,8 @@ sub perl_tokens(&$) {
 
     given ($code) {
         {
-            when ($expect_format == 1 && /\G(?=\n)/) {
-                if (/.*?\n\.\h*(?=(?:\z|\n))/cgs) {
+            when (($expect_format == 1) && /\G(?=\n)/) {
+                if (/.*?\n\.\h*(?=\n|\z)/cgs) {
                     $callback->('vertical_space', $-[0],     $-[0] + 1);
                     $callback->('format',         $-[0] + 1, $+[0]);
                     $expect_format = 0;
@@ -561,7 +561,7 @@ sub perl_tokens(&$) {
                 }
                 continue;
             }
-            when ($regex == 1 && /\G(?<!(?:(?:\+\+|--))\h)/ && m{\G$glob}gco) {
+            when ($regex == 1 && /\G(?<!(?:\+\+|--)\h)/ && m{\G$glob}gco) {
                 $callback->('glob_readline', $-[0], $+[0]);
                 $regex  = 0;
                 $canpod = 0;
@@ -569,6 +569,12 @@ sub perl_tokens(&$) {
             }
             when (m{\G$assignment_operators}gco) {
                 $callback->('assignment_operator', $-[0], $+[0]);
+                if ($format) {
+                    if (substr($_, $-[0], $+[0] - $-[0]) eq '=') {
+                        $format        = 0;
+                        $expect_format = 1;
+                    }
+                }
                 $regex  = 1;
                 $canpod = 0;
                 $flat   = 0;
@@ -583,12 +589,6 @@ sub perl_tokens(&$) {
             }
             when (m{\G$operators}gco || /\Gx(?=[0-9\W])/cg) {
                 $callback->('operator', $-[0], $+[0]);
-                if ($format) {
-                    if (substr($_, $-[0], ($+[0] - $-[0])) eq '=') {
-                        $format        = 0;
-                        $expect_format = 1;
-                    }
-                }
                 if (substr($_, $-[0], ($+[0] - $-[0])) =~ /^$postfix_operators\z/) {
                     $postfix_op = 1;
                 }
