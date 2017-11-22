@@ -223,8 +223,8 @@ sub perl_tokens(&$) {
 
     given ($code) {
         {
-            when (($expect_format == 1) && /\G(?=\n)/) {
-                if (/.*?\n\.\h*(?=\n|\z)/cgs) {
+            when (($expect_format == 1) && /\G(?=\R)/) {
+                if (/.*?\R\.\h*(?=\R|\z)/cgs) {
                     $callback->('vertical_space', $-[0],     $-[0] + 1);
                     $callback->('format',         $-[0] + 1, $+[0]);
                     $expect_format = 0;
@@ -240,9 +240,9 @@ sub perl_tokens(&$) {
                 }
                 redo;
             }
-            when ($#heredoc_eofs >= 0 && /\G(?=\n)/) {
+            when ($#heredoc_eofs >= 0 && /\G(?=\R)/) {
                 my $token = shift @heredoc_eofs;
-                if (m{\G.*?\n\Q$token\E(?=\n|\z)}sgc) {
+                if (m{\G.*?\R\Q$token\E(?=\R|\z)}sgc) {
                     $callback->('vertical_space', $-[0],     $-[0] + 1);
                     $callback->('heredoc',        $-[0] + 1, $+[0]);
                 }
@@ -256,7 +256,7 @@ sub perl_tokens(&$) {
                 redo;
             }
             when ($canpod == 1 && /\G^=[a-zA-Z]/cgm) {
-                /\G.*?\n=cut\h*(?=\n|\z)/cgs || /\G.*\z/cgs;
+                /\G.*?\R=cut\h*(?=\R|\z)/cgs || /\G.*\z/cgs;
                 $callback->('pod', $-[0] - 2, $+[0]);
                 redo;
             }
