@@ -1,7 +1,7 @@
 {
    "abstract" : "A tiny Perl code tokenizer",
    "author" : [
-      "Daniel \"Trizen\" Șuteu <trizenx@gmail.com>"
+      "Daniel Șuteu <trizen@protonmail.com>"
    ],
    "dynamic_config" : 1,
    "generated_by" : "Module::Build version 0.4224",

@@ -761,7 +761,7 @@ L<https://github.com/trizen/Perl-Tokenizer>
 
 =head1 AUTHOR
 
-Daniel "Trizen" Șuteu, E<lt>trizenx@gmail.comE<gt>
+Daniel "Trizen" Șuteu, E<lt>trizen@protonmail.comE<gt>
 
 =head1 COPYRIGHT AND LICENSE
 
