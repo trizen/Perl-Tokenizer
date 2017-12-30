@@ -197,8 +197,7 @@ my $perl_keywords =
     ))|h(?:ift|m(?:(?:write|read|ctl|get))|utdown)|in|leep|o(?:cket(?:pair)?|rt)|p(?:li(?:(?:ce|t))|rintf)
     |qrt|rand|t(?:(?:ate?|udy))|ub(?:str)?|y(?:mlink|s(?:(?:write|call|open|read|seek|tem))))|t(?:ell(?:di
     r)?|i(?:(?:mes?|ed?))|runcate)|u(?:c(?:first)?|mask|n(?:def|l(?:(?:ess|ink))|pack|shift|ti[el])|se|tim
-    e)|v(?:(?:alues|ec))|w(?:a(?:it(?:pid)?|ntarray|rn)|h(?:ile|e(?:n|re(?:so|is)))|rite)|xor|BEGIN|END|IN
-    IT|CHECK))\b
+    e)|v(?:(?:alues|ec))|w(?:a(?:it(?:pid)?|ntarray|rn)|h(?:(?:ile|en))|rite)|xor|BEGIN|END|INIT|CHECK))\b
     /x;
 #>>>
 
