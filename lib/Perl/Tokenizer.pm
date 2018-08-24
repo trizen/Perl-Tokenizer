@@ -276,7 +276,7 @@ sub perl_tokens(&$) {
             }
 
             if ($code =~ /\G\s+/cg) {
-                $callback->({other_space => [$-[0], $+[0]]});
+                $callback->('other_space', $-[0], $+[0]);
                 redo;
             }
         }
