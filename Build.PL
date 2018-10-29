@@ -19,6 +19,9 @@ my $builder = Module::Build->new(
     build_requires => {
                        'Test::More' => 0,
                       },
+
+    extra_manify_args => { utf8 => 1 },
+
     meta_merge => {
                    resources => {
                                  bugtracker => "https://github.com/trizen/Perl-Tokenizer/issues",
