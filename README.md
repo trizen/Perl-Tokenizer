@@ -1,8 +1,31 @@
-Perl-Tokenizer
+# Perl-Tokenizer
 
-Perl::Tokenizer is a tiny tokenizer which splits a given Perl code into a list of tokens.
+[Perl::Tokenizer](https://metacpan.org/release/Perl-Tokenizer) is a tiny tokenizer which splits a given Perl code into a list of tokens, using the power of regular expressions.
 
-INSTALLATION
+# EXAMPLE
+
+```perl
+use Perl::Tokenizer;
+my $code = 'my $num = 42;';
+perl_tokens { print "@_\n" } $code;
+```
+
+which generates the following tokens:
+
+```
+      #  TOKEN                     POS
+      ( keyword              => ( 0,  2) )
+      ( horizontal_space     => ( 2,  3) )
+      ( scalar_sigil         => ( 3,  4) )
+      ( var_name             => ( 4,  7) )
+      ( horizontal_space     => ( 7,  8) )
+      ( assignment_operator  => ( 8,  9) )
+      ( horizontal_space     => ( 9, 10) )
+      ( number               => (10, 12) )
+      ( semicolon            => (12, 13) )
+```
+
+# INSTALLATION
 
 To install this module, run the following commands:
 
@@ -11,37 +34,19 @@ To install this module, run the following commands:
     ./Build test
     ./Build install
 
-SUPPORT AND DOCUMENTATION
+# METACPAN
 
-After installing, you can find documentation for this module with the
-perldoc command.
+https://metacpan.org/release/Perl-Tokenizer
 
-    perldoc Perl::Tokenizer
+# LICENSE AND COPYRIGHT
 
-You can also look for information at:
-
-    RT, CPAN's request tracker (report bugs here)
-        http://rt.cpan.org/NoAuth/Bugs.html?Dist=Perl-Tokenizer
-
-    AnnoCPAN, Annotated CPAN documentation
-        http://annocpan.org/dist/Perl-Tokenizer
-
-    CPAN Ratings
-        http://cpanratings.perl.org/d/Perl-Tokenizer
-
-    Search CPAN
-        http://search.cpan.org/dist/Perl-Tokenizer/
-
-
-LICENSE AND COPYRIGHT
-
-Copyright (C) 2013-2017 Daniel "Trizen" Șuteu
+Copyright (C) 2013-2019 Daniel Șuteu
 
 This program is free software; you can redistribute it and/or modify it
 under the terms of the the Artistic License (2.0). You may obtain a
 copy of the full license at:
 
-L<http://www.perlfoundation.org/artistic_license_2_0>
+https://www.perlfoundation.org/artistic_license_2_0
 
 Any use, modification, and distribution of the Standard or Modified
 Versions is governed by this Artistic License. By using, modifying or

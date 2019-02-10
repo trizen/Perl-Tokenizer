@@ -819,11 +819,11 @@ L<https://github.com/trizen/Perl-Tokenizer>
 
 =head1 AUTHOR
 
-Daniel "Trizen" Șuteu, E<lt>trizen@protonmail.comE<gt>
+Daniel Șuteu, C<< <trizen at cpan.org> >>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright (C) 2013-2017
+Copyright (C) 2013-2017 Daniel Șuteu
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself, either Perl version 5.22.0 or,
