@@ -8,7 +8,7 @@ use Module::Build;
 my $builder = Module::Build->new(
     module_name       => 'Perl::Tokenizer',
     license           => 'artistic_2',
-    dist_author       => q{Daniel Șuteu <trizen@protonmail.com>},
+    dist_author       => q<Daniel Șuteu <trizen@cpan.org>>,
     dist_version_from => 'lib/Perl/Tokenizer.pm',
     dist_abstract     => 'A tiny Perl code tokenizer',
     release_status    => 'stable',
