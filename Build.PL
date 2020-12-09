@@ -10,8 +10,10 @@ my $builder = Module::Build->new(
     license           => 'artistic_2',
     dist_author       => q<Daniel Șuteu <trizen@cpan.org>>,
     dist_version_from => 'lib/Perl/Tokenizer.pm',
-    dist_abstract     => 'A tiny Perl code tokenizer',
     release_status    => 'stable',
+
+    dynamic_config    => 0,
+    extra_manify_args => { utf8 => 1 },
 
     configure_requires => {
                            'Module::Build' => 0,
@@ -19,8 +21,6 @@ my $builder = Module::Build->new(
     build_requires => {
                        'Test::More' => 0,
                       },
-
-    extra_manify_args => { utf8 => 1 },
 
     meta_merge => {
                    resources => {

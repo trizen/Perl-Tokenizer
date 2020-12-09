@@ -1,10 +1,10 @@
 {
-   "abstract" : "A tiny Perl code tokenizer",
+   "abstract" : "A tiny Perl code tokenizer.",
    "author" : [
       "Daniel Șuteu <trizen@cpan.org>"
    ],
-   "dynamic_config" : 1,
-   "generated_by" : "Module::Build version 0.4229",
+   "dynamic_config" : 0,
+   "generated_by" : "Module::Build version 0.4231",
    "license" : [
       "artistic_2"
    ],
@@ -60,5 +60,5 @@
       }
    },
    "version" : "0.10",
-   "x_serialization_backend" : "JSON::PP version 4.04"
+   "x_serialization_backend" : "JSON::PP version 4.05"
 }
