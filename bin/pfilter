@@ -159,7 +159,7 @@ pfilter extracts tokens from a Perl script that match a given regular expression
 
 =head1 AUTHOR
 
-Daniel "Trizen" Șuteu, E<lt>trizen@cpan.orgE<gt>
+Trizen, E<lt>trizen@cpan.orgE<gt>
 
 =head1 COPYRIGHT AND LICENSE
 

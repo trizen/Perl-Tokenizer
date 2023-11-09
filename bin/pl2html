@@ -133,7 +133,7 @@ pl2html reads a Perl script and outputs an highlighted HTML version of it.
 
 =head1 AUTHOR
 
-Daniel "Trizen" Șuteu, E<lt>trizen@cpan.orgE<gt>
+Trizen, E<lt>trizen@cpan.orgE<gt>
 
 =head1 COPYRIGHT AND LICENSE
 

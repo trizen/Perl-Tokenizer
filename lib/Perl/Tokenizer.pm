@@ -581,7 +581,7 @@ sub perl_tokens(&$) {
         }
 
         if ($code =~ m{\G$perl_filetests\b}gco) {
-            my @pos = ($-[0], $+[0]);
+            my @pos          = ($-[0], $+[0]);
             my $is_bare_word = ($code =~ /\G(?=\h*=>)/);
 
             $callback->(($is_bare_word ? 'bare_word' : 'file_test'), @pos);
